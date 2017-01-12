@@ -29,7 +29,7 @@ public class Player {
         Integer raise = gameState.get("minimum_raise").getAsInt();
         String inAction = gameState.get("in_action").toString();
         Integer value = currentBuyIn - bet + raise;
-        result = 0;
+        result = 50;
         System.out.println("bet = " + bet);
         System.out.println("raise = " + raise);
         System.out.println("currentBuyIn = " + currentBuyIn);
