@@ -46,8 +46,9 @@ public class Player {
         System.err.println(getCommunityCards(gameState));
         System.out.println("CHECKPOINT 3");
         //System.out.println(currentBuyIn-bet+200);
+        
        // current_buy_in - players[in_action][bet] + minimum_raise
-        return 1000;
+        return 100;
     }
 
     private static List<Card> getCommunityCards(JsonObject gameState) {
