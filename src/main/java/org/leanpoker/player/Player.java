@@ -22,6 +22,7 @@ public class Player {
         String cardRank = null;
         String cardSuite = null;
         System.out.println("CHECKPOINT 2");
+        Integer currentBuyIn = gameState.get("current_buy_in").getAsInt();
 
 //        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
 //        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
@@ -34,6 +35,7 @@ public class Player {
         System.err.println(request);
         System.out.println("CHECKPOINT 3");
 
+        current_buy_in - players[in_action][bet] + minimum_raise
         return 1000;
     }
 
