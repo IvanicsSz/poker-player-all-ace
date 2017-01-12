@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Card {
-    private String rank;
-    private int suit;
+    private String suit;
+    private int rank;
 
 
-    private static final Map<String, Integer> alphabeticalSuit = new HashMap<String, Integer>() {{
+    private static final Map<String, Integer> alphabeticalRank = new HashMap<String, Integer>() {{
         put("J", 11);
         put("Q", 12);
         put("K", 13);
@@ -16,19 +16,19 @@ public class Card {
     }};
 
 
-    public Card(String rank, String suit) {
-        this.rank = rank;
+    public Card(String suit, String rank) {
+        this.suit = suit;
 
-        if (alphabeticalSuit.get(suit) != null) {
-            this.suit = alphabeticalSuit.get(suit);
-        } else this.suit = Integer.parseInt(suit);
+        if (alphabeticalRank.get(suit) != null) {
+            this.rank = alphabeticalRank.get(suit);
+        } else this.rank = Integer.parseInt(rank);
     }
 
-    public String getRank() {
+    public int getRank() {
         return rank;
     }
 
-    public int getSuit() {
+    public String getSuit() {
         return suit;
     }
 }
