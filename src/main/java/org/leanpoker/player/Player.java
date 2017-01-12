@@ -49,17 +49,19 @@ public class Player {
         //System.err.println(getCommunityCards(gameState));
         //System.out.println(currentBuyIn-bet+200);
         System.out.println("NEW LOGIC" + (currentBuyIn-bet+raise));
+        result = 0;
+        //if (cardRow1.get("rank").getAsInt() != 0 && cardRow1.get("rank").getAsInt() != 0)
         if (currentBuyIn < 800) {
             result = currentBuyIn-bet+raise;
         }   else
             result = 0;
 
-        if (cardRow1.get("rank").getAsInt() > 10 && cardRow2.get("rank").getAsInt() > 10){
-            result = 1000;
-        }
-        if (cardRow1.get("rank").getAsInt() == cardRow2.get("rank").getAsInt() ){
-            result = 1000;
-        }
+//        if (cardRow1.get("rank").getAsInt() > 10 && cardRow2.get("rank").getAsInt() > 10){
+//            result = currentBuyIn-bet+raise;
+//        }
+//        if (cardRow1.get("rank").getAsInt() == cardRow2.get("rank").getAsInt() ){
+//            result = currentBuyIn-bet+raise;
+//        }
        // current_buy_in - players[in_action][bet] + minimum_raise
         System.out.println("CHECKPOINT 3");
         return result;
