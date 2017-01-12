@@ -23,13 +23,7 @@ public class Player {
         JsonObject ace = (JsonObject) player.get(2);
         System.out.println("NAME:" + ace.get("name"));
         JsonArray cards = ace.getAsJsonArray("hole_cards");
-//        JsonArray cardList = gameState.getAsJsonArray("community_cards");
-//        if (cardList != null){
-//            JsonObject flop1 = cardList.get(0).getAsJsonObject();
-//            String flopS = flop1.toString();
-//            System.out.println("FLOPS = " + flopS);
-//        }
-        //System.out.println("cardList = " + cardList);
+
         String cardRank = null;
         String cardSuite = null;
         System.out.println("CHECKPOINT 2");
@@ -37,6 +31,7 @@ public class Player {
         Integer bet = ((JsonObject) player.get(2)).get("bet").getAsInt();
         Integer raise = gameState.get("minimum_raise").getAsInt();
         String inAction = gameState.get("in_action").toString();
+        Integer value = currentBuyIn - bet + raise;
         result = 0;
         if (cards.get(0) != null && cards.get(1) != null) {
             JsonObject cardRow1 = cards.get(0).getAsJsonObject();
@@ -49,10 +44,13 @@ public class Player {
                 System.out.println("NEW LOGIC: " + (currentBuyIn - bet + raise));
 
 
-            if (card1.getRank() > 6 && card2.getRank() > 11){
+            if (value < 100) {
                 result = currentBuyIn - bet + raise;
             }
-            if (card1.getSuit() == card2.getSuit()){
+            if (card1.getRank() > 5 && card2.getRank() > 9){
+                result = currentBuyIn - bet + raise;
+            }
+            if (card1.getSuit() == card2.getSuit() ){
                 result = currentBuyIn - bet + raise;
             }
 
@@ -61,15 +59,17 @@ public class Player {
             }
 
             if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank()  == card2.getRank()) {
-                result = 1000;
+                result = Math.max(890, currentBuyIn - bet + raise);
             }
+
+
 
             System.out.println("CARD1 RANK: " + card1.getRank());
             System.out.println("CARD2 RANK: " + card2.getRank());
             System.out.println("result = " + result);
 
             System.out.println("check community cards");
-            //System.out.println(getCommunityCards(gameState));
+            System.out.println(getCommunityCards(gameState));
 
 
             // current_buy_in - players[in_action][bet] + minimum_raise
@@ -82,7 +82,7 @@ public class Player {
         List<Card> communityCards = new ArrayList<>();
         JsonArray cardList = gameState.getAsJsonArray("community_cards");
         System.err.println(cardList.size());
-        if (cardList.size() < 1) {
+        if (cardList.size() > 0) {
             for (JsonElement cardRaw : cardList) {
                 JsonObject card = cardRaw.getAsJsonObject();
                 communityCards.add(new Card(card.get("suit").getAsString(), card.get("rank").getAsString()));
