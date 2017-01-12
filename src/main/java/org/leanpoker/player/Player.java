@@ -12,6 +12,7 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement request) {
+
         //JsonElement jsonElement = new JsonParser().parse(request);
 
 
@@ -20,7 +21,7 @@ public class Player {
         JsonObject ace = (JsonObject) player.get(2);
         String cards = ace.get("hole_cards").toString();
         System.err.println(cards);
-
+        System.err.println(request);
         return 1000;
     }
 
