@@ -41,6 +41,12 @@ public class Player {
         Integer raise = gameState.get("minimum_raise").getAsInt();
         String inAction = gameState.get("in_action").toString();
         Integer value = currentBuyIn - bet + raise;
+        for (JsonElement jsonElement : player) {
+            JsonObject p = jsonElement.getAsJsonObject();
+            if (p.get("status").getAsString().equals("active")){
+                countPlayer++;
+            }
+        }
 
         result = 0;
         System.out.println("bet = " + bet);
@@ -77,6 +83,12 @@ public class Player {
 
             if (card1.getRank() > 11 && card2.getRank() > 11 && card1.getRank()  == card2.getRank() ) {
                 result = 1000;
+            }
+
+            if (countPlayer <= 3 ){
+                if (card1.getRank() > 10 && card2.getRank() > 10  ) {
+                    result = 1000;
+                }  
             }
 
             if (betW > 400 && betZS > 400){
