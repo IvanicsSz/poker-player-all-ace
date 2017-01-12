@@ -16,12 +16,12 @@ public class Card {
     }};
 
 
-    public Card(String suit, String rank) {
-        this.suit = suit;
+    public Card(String suitString, String rankString) {
+        this.suit = suitString;
 
-        if (alphabeticalRank.get(rank) != null) {
-            this.rank = alphabeticalRank.get(rank);
-        } else this.rank = Integer.parseInt(rank);
+        if (alphabeticalRank.get(rankString) != null) {
+            this.rank = alphabeticalRank.get(rankString);
+        } else this.rank = Integer.parseInt(rankString);
     }
 
     public int getRank() {
