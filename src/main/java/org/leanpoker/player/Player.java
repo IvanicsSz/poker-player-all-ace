@@ -28,7 +28,10 @@ public class Player {
         System.out.println("currentBuyIn = " + currentBuyIn);
         String bet = ((JsonObject) player.get(2)).get("bet").toString();
         System.out.println("bet = " + bet);
-
+        Integer raise = gameState.get("minimum_raise").getAsInt();
+        System.out.println("raise = " + raise);
+        String inAction = gameState.get("in_action").toString();
+        System.out.println("inAction = " + inAction);
 
 //        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
 //        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
@@ -42,7 +45,7 @@ public class Player {
         System.out.println("checking community cards");
         System.err.println(getCommunityCards(gameState));
         System.out.println("CHECKPOINT 3");
-
+        //System.out.println(currentBuyIn-bet+200);
        // current_buy_in - players[in_action][bet] + minimum_raise
         return 1000;
     }
