@@ -34,24 +34,24 @@ public class Player {
         System.out.println("bet = " + bet);
         System.out.println("raise = " + raise);
         System.out.println("inAction = " + inAction);
-
+        result = 0;
         if (cards.get(0) != null && cards.get(0) != null) {
-        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
-        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
-        System.out.println("CHECKPOINT 2.5");
-            Card card1 = new Card(cardRow1.get("suit").getAsString(), cardRow1.get("rank").getAsString());
-            Card card2 = new Card(cardRow2.get("suit").getAsString(), cardRow2.get("rank").getAsString());
-            //cards.get(1).
-            System.out.println("card1 = " + card1);
-            System.out.println("card2 = " + card2);
-            System.err.println(request);
-            System.out.println("checking community cards");
-            System.out.println("NEW LOGIC" + (currentBuyIn - bet + raise));
+            JsonObject cardRow1 = cards.get(0).getAsJsonObject();
+            JsonObject cardRow2 = cards.get(1).getAsJsonObject();
+            System.out.println("CHECKPOINT 2.5");
+                Card card1 = new Card(cardRow1.get("suit").getAsString(), cardRow1.get("rank").getAsString());
+                Card card2 = new Card(cardRow2.get("suit").getAsString(), cardRow2.get("rank").getAsString());
+                //cards.get(1).
+                System.out.println("card1 = " + card1);
+                System.out.println("card2 = " + card2);
+                System.err.println(request);
+                System.out.println("checking community cards");
+                System.out.println("NEW LOGIC" + (currentBuyIn - bet + raise));
 //        if (currentBuyIn < 800) {
 //            result = currentBuyIn-bet+raise;
 //        }   else
 //            result = 0;
-            result = 0;
+
 
             if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank() == card2.getRank()) {
                 result = 1000;
@@ -60,7 +60,7 @@ public class Player {
             // current_buy_in - players[in_action][bet] + minimum_raise
             System.out.println("CHECKPOINT 3");
         }
-            return 1000;
+            return result;
     }
 
     private static List<Card> getCommunityCards(JsonObject gameState) {
