@@ -64,15 +64,15 @@ public class Player {
 //            if (card1.getRank() > 5 && card2.getRank() > 9){
 //                result = currentBuyIn - bet + raise;
 //            }
-            if (card1.getSuit().equals(card2.getSuit()) && card1.getRank() > 7 && card2.getRank() >7  ){
-                result = 1000;
-            }
+//            if (card1.getSuit().equals(card2.getSuit()) && card1.getRank() > 9 && card2.getRank() >9  ){
+//                result = 1000;
+//            }
 //
 //            if (card1.getRank() > 9 && card2.getRank() > 9) {
 //                result = currentBuyIn - bet + raise;
 //            }
 
-            if (card1.getRank() > 7 && card2.getRank() > 7 && card1.getRank()  == card2.getRank()) {
+            if (card1.getRank() > 10 && card2.getRank() > 10 && card1.getRank()  == card2.getRank()) {
                 result = 1000;
             }
 
