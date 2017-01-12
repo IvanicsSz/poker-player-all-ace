@@ -51,10 +51,10 @@ public class Player {
 //            if (value < 300 && (card1.getRank() > 10 || card2.getRank() >10 )) {
 //                result = currentBuyIn - bet + raise;
 //            }
-            if (card1.getRank() > 5 && card2.getRank() > 9){
-                result = currentBuyIn - bet + raise;
-            }
-            if (card1.getSuit() == card2.getSuit() ){
+//            if (card1.getRank() > 5 && card2.getRank() > 9){
+//                result = currentBuyIn - bet + raise;
+//            }
+            if (card1.getSuit().equals(card2.getSuit()) && (card1.getRank() > 9 || card2.getRank() >9 ) ){
                 result = currentBuyIn - bet + raise;
             }
 
@@ -63,7 +63,7 @@ public class Player {
             }
 
             if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank()  == card2.getRank()) {
-                result = Math.max(890, currentBuyIn - bet + raise);
+                result = currentBuyIn - bet + raise;
             }
 
             System.out.println("check community cards");
