@@ -5,6 +5,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Player {
@@ -37,10 +39,22 @@ public class Player {
        // System.out.println("card1 = " + card1);
        // System.out.println("card2 = " + card2);
         System.err.println(request);
+        System.out.println("checking community cards");
+        System.err.println(getCommunityCards(gameState));
         System.out.println("CHECKPOINT 3");
 
        // current_buy_in - players[in_action][bet] + minimum_raise
         return 1000;
+    }
+
+    private static List<Card> getCommunityCards(JsonObject gameState) {
+        List<Card> communityCards = new ArrayList<>();
+        JsonArray cardList = gameState.getAsJsonArray("community_cards");
+        for (JsonElement cardRaw : cardList) {
+            JsonObject card = cardRaw.getAsJsonObject();
+            communityCards.add(new Card(card.get("suit").toString(), card.get("rank").toString()));
+        }
+        return communityCards;
     }
 
     public static void showdown(JsonElement game) {
