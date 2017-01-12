@@ -52,8 +52,13 @@ public class Player {
             }
 
             if (card1.getRank() > 9 && card2.getRank() > 9) {
+                result = currentBuyIn - bet + raise;
+            }
+
+            if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank()  == card2.getRank()) {
                 result = 1000;
             }
+
             System.out.println("CARD1 RANK: " + card1.getRank());
             System.out.println("CARD2 RANK: " + card2.getRank());
             System.out.println("result = " + result);
