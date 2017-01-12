@@ -9,6 +9,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class Player {
 
@@ -16,11 +17,18 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         Integer result = null;
+        Integer countPlayer = null;
+        Integer countRound = null;
 
         JsonObject gameState = request.getAsJsonObject();
         JsonArray player = gameState.getAsJsonArray("players");
         JsonObject ace = (JsonObject) player.get(2);
         JsonArray cards = ace.getAsJsonArray("hole_cards");
+        Integer round = gameState.get("round").getAsInt();
+//        for (int i = 0; i < player.size(); i++) {
+//
+//
+//        }
 
         String cardRank = null;
         String cardSuite = null;
@@ -29,7 +37,8 @@ public class Player {
         Integer raise = gameState.get("minimum_raise").getAsInt();
         String inAction = gameState.get("in_action").toString();
         Integer value = currentBuyIn - bet + raise;
-        result = 50;
+
+        result = 0;
         System.out.println("bet = " + bet);
         System.out.println("raise = " + raise);
         System.out.println("currentBuyIn = " + currentBuyIn);
@@ -54,13 +63,13 @@ public class Player {
 //            if (card1.getRank() > 5 && card2.getRank() > 9){
 //                result = currentBuyIn - bet + raise;
 //            }
-            if (card1.getSuit().equals(card2.getSuit()) && (card1.getRank() > 9 || card2.getRank() >9 ) ){
-                result = currentBuyIn - bet + raise;
-            }
-
-            if (card1.getRank() > 9 && card2.getRank() > 9) {
-                result = currentBuyIn - bet + raise;
-            }
+//            if (card1.getSuit().equals(card2.getSuit()) && (card1.getRank() > 9 || card2.getRank() >9 ) ){
+//                result = currentBuyIn - bet + raise;
+//            }
+//
+//            if (card1.getRank() > 9 && card2.getRank() > 9) {
+//                result = currentBuyIn - bet + raise;
+//            }
 
             if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank()  == card2.getRank()) {
                 result = currentBuyIn - bet + raise;
