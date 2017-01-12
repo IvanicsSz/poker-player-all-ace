@@ -3,36 +3,21 @@ package org.leanpoker.player;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 public class Player {
 
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement request) {
-        Integer result = null;
-        Integer countPlayer = null;
-        Integer countRound = null;
 
-
+        Integer result;
         JsonObject gameState = request.getAsJsonObject();
         JsonArray player = gameState.getAsJsonArray("players");
         JsonObject ace = (JsonObject) player.get(2);
         JsonArray cards = ace.getAsJsonArray("hole_cards");
-        Integer round = gameState.get("round").getAsInt();
-        Integer betZS = ((JsonObject) player.get(4)).get("bet").getAsInt();
-        Integer betW = ((JsonObject) player.get(5)).get("bet").getAsInt();
-
-//        for (int i = 0; i < player.size(); i++) {
-//
-//
-//        }
 
         String cardRank = null;
         String cardSuite = null;
