@@ -20,8 +20,8 @@ public class Card {
         this.suit = suitString;
 
         if (alphabeticalRank.get(rankString) == null) {
-            this.rank = alphabeticalRank.get(rankString);
-        } else this.rank = Integer.parseInt(rankString);
+            this.rank = Integer.parseInt(rankString);
+        } else this.rank = alphabeticalRank.get(rankString);
     }
 
     public int getRank() {
