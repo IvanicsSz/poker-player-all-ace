@@ -35,6 +35,7 @@ public class Player {
        // System.out.println("card1 = " + card1);
        // System.out.println("card2 = " + card2);
         System.err.println(request);
+        System.out.println("checking community cards");
         System.err.println(getCommunityCards(gameState));
         System.out.println("CHECKPOINT 3");
 
