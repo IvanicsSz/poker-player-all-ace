@@ -53,7 +53,10 @@ public class Player {
 //            result = 0;
 
 
-            if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank() == card2.getRank()) {
+            if (card1.getRank() > 9 && card2.getRank() > 9) {
+                result = 1000;
+            }
+            if (card1.getRank() > 9 == card2.getRank() > 9){
                 result = 1000;
             }
 
