@@ -42,23 +42,6 @@ public class Player {
                 System.out.println("NEW LOGIC: " + (currentBuyIn - bet + raise));
 
 
-//            if (value < 100 && card1.getRank() < 7 && card2.getRank() < 7) {
-//                result = currentBuyIn - bet + raise;
-//            }
-//
-//            if (value < 300 && (card1.getRank() > 10 || card2.getRank() >10 )) {
-//                result = currentBuyIn - bet + raise;
-//            }
-//            if (card1.getRank() > 5 && card2.getRank() > 9){
-//                result = currentBuyIn - bet + raise;
-//            }
-//            if (card1.getSuit().equals(card2.getSuit()) && card1.getRank() > 9 && card2.getRank() >9  ){
-//                result = 1000;
-//            }
-//
-//            if (card1.getRank() > 9 && card2.getRank() > 9) {
-//                result = currentBuyIn - bet + raise;
-//            }
 
             if (card1.getRank() > 11 && card2.getRank() > 11 && card1.getRank()  == card2.getRank() ) {
                 result = 1000;
