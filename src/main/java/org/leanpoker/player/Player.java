@@ -20,6 +20,7 @@ public class Player {
         Integer countPlayer = null;
         Integer countRound = null;
 
+
         JsonObject gameState = request.getAsJsonObject();
         JsonArray player = gameState.getAsJsonArray("players");
         JsonObject ace = (JsonObject) player.get(2);
@@ -63,16 +64,16 @@ public class Player {
 //            if (card1.getRank() > 5 && card2.getRank() > 9){
 //                result = currentBuyIn - bet + raise;
 //            }
-            if (card1.getSuit().equals(card2.getSuit()) && card1.getRank() > 9 && card2.getRank() >9  ){
-                result = currentBuyIn - bet + raise;
+            if (card1.getSuit().equals(card2.getSuit()) && card1.getRank() > 7 && card2.getRank() >7  ){
+                result = 1000;
             }
 //
 //            if (card1.getRank() > 9 && card2.getRank() > 9) {
 //                result = currentBuyIn - bet + raise;
 //            }
 
-            if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank()  == card2.getRank()) {
-                result = currentBuyIn - bet + raise;
+            if (card1.getRank() > 7 && card2.getRank() > 7 && card1.getRank()  == card2.getRank()) {
+                result = 1000;
             }
 
             System.out.println("check community cards");
