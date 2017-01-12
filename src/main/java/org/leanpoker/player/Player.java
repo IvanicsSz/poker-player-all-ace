@@ -23,6 +23,10 @@ public class Player {
         String cardSuite = null;
         System.out.println("CHECKPOINT 2");
         Integer currentBuyIn = gameState.get("current_buy_in").getAsInt();
+        System.out.println("currentBuyIn = " + currentBuyIn);
+        String bet = ((JsonObject) player.get(2)).get("bet").toString();
+        System.out.println("bet = " + bet);
+
 
 //        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
 //        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
