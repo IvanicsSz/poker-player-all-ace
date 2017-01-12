@@ -24,6 +24,11 @@ public class Player {
         System.out.println("NAME:" + ace.get("name"));
         JsonArray cards = ace.getAsJsonArray("hole_cards");
         JsonArray cardList = gameState.getAsJsonArray("community_cards");
+        if (cardList != null){
+            JsonObject flop1 = cardList.get(0).getAsJsonObject();
+            String flopS = flop1.toString();
+            System.out.println("FLOPS = " + flopS);
+        }
         System.out.println("cardList = " + cardList);
         String cardRank = null;
         String cardSuite = null;
