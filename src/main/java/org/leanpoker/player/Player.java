@@ -56,15 +56,13 @@ public class Player {
 //            result = 0;
         result = 0;
 
-        if (card1.getRank() > 10 && card2.getRank() > 10){
+        if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank() == card2.getRank()){
             result = 1000;
         }
-        if (card1.getRank() == card2.getRank() ){
-            result = 1000;
-        }
+
        // current_buy_in - players[in_action][bet] + minimum_raise
         System.out.println("CHECKPOINT 3");
-        return currentBuyIn-bet+raise;
+        return result;
     }
 
     private static List<Card> getCommunityCards(JsonObject gameState) {
