@@ -56,7 +56,7 @@ public class Player {
             }
             System.out.println("CARD1 RANK: " + card1.getRank());
             System.out.println("CARD2 RANK: " + card2.getRank());
-
+            System.out.println("result = " + result);
 
 
             // current_buy_in - players[in_action][bet] + minimum_raise
