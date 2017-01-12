@@ -13,7 +13,7 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
 
-
+        System.out.println("CHECKPOINT 1");
         JsonObject gameState = request.getAsJsonObject();
         JsonArray player = gameState.getAsJsonArray("players");
         JsonObject ace = (JsonObject) player.get(2);
@@ -21,17 +21,19 @@ public class Player {
         JsonArray cards = ace.getAsJsonArray("hole_cards");
         String cardRank = null;
         String cardSuite = null;
+        System.out.println("CHECKPOINT 2");
 
-        for (int i = 0; i < cards.size(); i++) {
-            JsonObject card = cards.get(i).getAsJsonObject();
-            cardRank = card.get("rank").toString();
-            cardSuite = card.get("suit").toString();
-        }
+        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
+        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
+        Card card1 = new Card(cardRow1.get("suit").toString(),cardRow1.get("rank").toString());
+        Card card2 = new Card(cardRow2.get("suit").toString(),cardRow2.get("rank").toString());
         //cards.get(1).
         //[{"rank":"7","suit":"spades"},{"rank":"4","suit":"diamonds"}]
-        System.out.println("cardSuite = " + cardSuite);
-        System.out.println("cardRank = " + cardRank);
+        System.out.println("card1 = " + card1);
+        System.out.println("card2 = " + card2);
         System.err.println(request);
+        System.out.println("CHECKPOINT 3");
+
         return 1000;
     }
 

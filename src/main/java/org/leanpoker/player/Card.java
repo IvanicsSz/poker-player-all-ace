@@ -31,4 +31,12 @@ public class Card {
     public String getSuit() {
         return suit;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit='" + suit + '\'' +
+                ", rank=" + rank +
+                '}';
+    }
 }
