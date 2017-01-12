@@ -48,14 +48,14 @@ public class Player {
         //System.err.println(getCommunityCards(gameState));
         //System.out.println(currentBuyIn-bet+200);
         System.out.println("NEW LOGIC" + (currentBuyIn-bet+raise));
-//        if (currentBuyIn < 1000) {
-//            result = currentBuyIn-bet+raise;
-//        }   else
-//            result = 0;
+        if (currentBuyIn < 1000) {
+            result = currentBuyIn-bet+raise;
+        }   else
+            result = 0;
 
        // current_buy_in - players[in_action][bet] + minimum_raise
         System.out.println("CHECKPOINT 3");
-        return 1000;
+        return result;
     }
 
     private static List<Card> getCommunityCards(JsonObject gameState) {
