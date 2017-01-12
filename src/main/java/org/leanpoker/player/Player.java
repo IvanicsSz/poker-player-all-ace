@@ -33,7 +33,7 @@ public class Player {
         Integer raise = gameState.get("minimum_raise").getAsInt();
         String inAction = gameState.get("in_action").toString();
         result = 0;
-        if (cards.get(0) != null && cards.get(0) != null) {
+        if (cards.get(0) != null && cards.get(1) != null) {
             JsonObject cardRow1 = cards.get(0).getAsJsonObject();
             JsonObject cardRow2 = cards.get(1).getAsJsonObject();
             System.out.println("CHECKPOINT 2.5");
