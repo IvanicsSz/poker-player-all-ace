@@ -23,6 +23,8 @@ public class Player {
         JsonObject ace = (JsonObject) player.get(2);
         System.out.println("NAME:" + ace.get("name"));
         JsonArray cards = ace.getAsJsonArray("hole_cards");
+        JsonArray cardList = gameState.getAsJsonArray("community_cards");
+        System.out.println("cardList = " + cardList);
         String cardRank = null;
         String cardSuite = null;
         System.out.println("CHECKPOINT 2");
@@ -53,12 +55,18 @@ public class Player {
 //            result = 0;
 
 
+            if (card1.getRank() > 6 == card2.getRank() > 11){
+                result = currentBuyIn - bet + raise;
+            }
+            if (card1.getSuit() == card2.getSuit()){
+                result = currentBuyIn - bet + raise;
+            }
+
             if (card1.getRank() > 9 && card2.getRank() > 9) {
                 result = 1000;
             }
-            if (card1.getRank() > 9 == card2.getRank() > 9){
-                result = 1000;
-            }
+            
+
 
             // current_buy_in - players[in_action][bet] + minimum_raise
             System.out.println("CHECKPOINT 3");
