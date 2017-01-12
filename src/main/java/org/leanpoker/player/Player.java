@@ -44,7 +44,11 @@ public class Player {
                 System.out.println("NEW LOGIC: " + (currentBuyIn - bet + raise));
 
 
-            if (value < 100) {
+            if (value < 100 && card1.getRank() < 7 && card2.getRank() < 7) {
+                result = currentBuyIn - bet + raise;
+            }
+
+            if (value < 300 && (card1.getRank() > 10 || card2.getRank() >10 )) {
                 result = currentBuyIn - bet + raise;
             }
             if (card1.getRank() > 5 && card2.getRank() > 9){
