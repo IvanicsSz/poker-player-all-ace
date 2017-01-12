@@ -15,6 +15,7 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement request) {
+        Integer result = null;
 
         System.out.println("CHECKPOINT 1");
         JsonObject gameState = request.getAsJsonObject();
@@ -44,12 +45,17 @@ public class Player {
        // System.out.println("card2 = " + card2);
         System.err.println(request);
         System.out.println("checking community cards");
-        System.err.println(getCommunityCards(gameState));
-        System.out.println("CHECKPOINT 3");
+        //System.err.println(getCommunityCards(gameState));
         //System.out.println(currentBuyIn-bet+200);
         System.out.println("NEW LOGIC" + (currentBuyIn-bet+raise));
+//        if (currentBuyIn < 1000) {
+//            result = currentBuyIn-bet+raise;
+//        }   else
+//            result = 0;
+
        // current_buy_in - players[in_action][bet] + minimum_raise
-        return 100;
+        System.out.println("CHECKPOINT 3");
+        return 1000;
     }
 
     private static List<Card> getCommunityCards(JsonObject gameState) {
