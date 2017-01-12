@@ -35,12 +35,12 @@ public class Player {
         System.out.println("raise = " + raise);
         System.out.println("inAction = " + inAction);
 
+        if (cards.get(0) != null && cards.get(0) != null) {
         JsonObject cardRow1 = cards.get(0).getAsJsonObject();
         JsonObject cardRow2 = cards.get(1).getAsJsonObject();
         System.out.println("CHECKPOINT 2.5");
-        if (cardRow1 != null && cardRow2 != null) {
-            Card card1 = new Card(cardRow1.get("suit").toString(), cardRow1.get("rank").toString());
-            Card card2 = new Card(cardRow2.get("suit").toString(), cardRow2.get("rank").toString());
+            Card card1 = new Card(cardRow1.get("suit").getAsString(), cardRow1.get("rank").getAsString());
+            Card card2 = new Card(cardRow2.get("suit").getAsString(), cardRow2.get("rank").getAsString());
             //cards.get(1).
             System.out.println("card1 = " + card1);
             System.out.println("card2 = " + card2);
