@@ -23,10 +23,10 @@ public class Player {
         String cardSuite = null;
         System.out.println("CHECKPOINT 2");
 
-        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
-        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
-        Card card1 = new Card(cardRow1.get("suit").toString(),cardRow1.get("rank").toString());
-        Card card2 = new Card(cardRow2.get("suit").toString(),cardRow2.get("rank").toString());
+//        JsonObject cardRow1 = cards.get(0).getAsJsonObject();
+//        JsonObject cardRow2 = cards.get(1).getAsJsonObject();
+//        Card card1 = new Card(cardRow1.get("suit").toString(),cardRow1.get("rank").toString());
+//        Card card2 = new Card(cardRow2.get("suit").toString(),cardRow2.get("rank").toString());
         //cards.get(1).
         //[{"rank":"7","suit":"spades"},{"rank":"4","suit":"diamonds"}]
         System.out.println("card1 = " + card1);
