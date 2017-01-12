@@ -58,6 +58,9 @@ public class Player {
             System.out.println("CARD2 RANK: " + card2.getRank());
             System.out.println("result = " + result);
 
+            System.out.println("check community cards");
+            System.out.println(getCommunityCards(gameState));
+
 
             // current_buy_in - players[in_action][bet] + minimum_raise
             System.out.println("CHECKPOINT 3");
@@ -68,9 +71,12 @@ public class Player {
     private static List<Card> getCommunityCards(JsonObject gameState) {
         List<Card> communityCards = new ArrayList<>();
         JsonArray cardList = gameState.getAsJsonArray("community_cards");
-        for (JsonElement cardRaw : cardList) {
-            JsonObject card = cardRaw.getAsJsonObject();
-            communityCards.add(new Card(card.get("suit").toString(), card.get("rank").toString()));
+        System.err.println(cardList.size());
+        if (cardList.size() < 1) {
+            for (JsonElement cardRaw : cardList) {
+                JsonObject card = cardRaw.getAsJsonObject();
+                communityCards.add(new Card(card.get("suit").toString(), card.get("rank").toString()));
+            }
         }
         return communityCards;
     }
