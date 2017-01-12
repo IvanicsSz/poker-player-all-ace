@@ -80,7 +80,7 @@ public class Player {
         if (cardList.size() < 1) {
             for (JsonElement cardRaw : cardList) {
                 JsonObject card = cardRaw.getAsJsonObject();
-                communityCards.add(new Card(card.get("suit").toString(), card.get("rank").toString()));
+                communityCards.add(new Card(card.get("suit").getAsString(), card.get("rank").getAsString()));
             }
         }
         return communityCards;
