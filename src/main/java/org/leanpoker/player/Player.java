@@ -38,8 +38,8 @@ public class Player {
         JsonObject cardRow1 = cards.get(0).getAsJsonObject();
         JsonObject cardRow2 = cards.get(1).getAsJsonObject();
 
-//        Card card1 = new Card(cardRow1.get("suit").toString(),cardRow1.get("rank").toString());
-//        Card card2 = new Card(cardRow2.get("suit").toString(),cardRow2.get("rank").toString());
+        Card card1 = new Card(cardRow1.get("suit").toString(),cardRow1.get("rank").toString());
+        Card card2 = new Card(cardRow2.get("suit").toString(),cardRow2.get("rank").toString());
         //cards.get(1).
         //[{"rank":"7","suit":"spades"},{"rank":"4","suit":"diamonds"}]
        // System.out.println("card1 = " + card1);
@@ -49,19 +49,19 @@ public class Player {
         //System.err.println(getCommunityCards(gameState));
         //System.out.println(currentBuyIn-bet+200);
         System.out.println("NEW LOGIC" + (currentBuyIn-bet+raise));
-        result = 0;
         //if (cardRow1.get("rank").getAsInt() != 0 && cardRow1.get("rank").getAsInt() != 0)
-        if (currentBuyIn < 800) {
-            result = currentBuyIn-bet+raise;
-        }   else
-            result = 0;
+//        if (currentBuyIn < 800) {
+//            result = currentBuyIn-bet+raise;
+//        }   else
+//            result = 0;
+        result = 0;
 
-//        if (cardRow1.get("rank").getAsInt() > 10 && cardRow2.get("rank").getAsInt() > 10){
-//            result = currentBuyIn-bet+raise;
-//        }
-//        if (cardRow1.get("rank").getAsInt() == cardRow2.get("rank").getAsInt() ){
-//            result = currentBuyIn-bet+raise;
-//        }
+        if (card1.getRank() > 10 && card2.getRank() > 10){
+            result = 1000;
+        }
+        if (card1.getRank() == card2.getRank() ){
+            result = 1000;
+        }
        // current_buy_in - players[in_action][bet] + minimum_raise
         System.out.println("CHECKPOINT 3");
         return result;
