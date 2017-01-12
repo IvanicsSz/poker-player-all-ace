@@ -63,9 +63,9 @@ public class Player {
 //            if (card1.getRank() > 5 && card2.getRank() > 9){
 //                result = currentBuyIn - bet + raise;
 //            }
-//            if (card1.getSuit().equals(card2.getSuit()) && (card1.getRank() > 9 || card2.getRank() >9 ) ){
-//                result = currentBuyIn - bet + raise;
-//            }
+            if (card1.getSuit().equals(card2.getSuit()) && card1.getRank() > 9 && card2.getRank() >9  ){
+                result = currentBuyIn - bet + raise;
+            }
 //
 //            if (card1.getRank() > 9 && card2.getRank() > 9) {
 //                result = currentBuyIn - bet + raise;
