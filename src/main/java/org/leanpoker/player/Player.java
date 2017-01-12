@@ -26,6 +26,9 @@ public class Player {
         JsonObject ace = (JsonObject) player.get(2);
         JsonArray cards = ace.getAsJsonArray("hole_cards");
         Integer round = gameState.get("round").getAsInt();
+        Integer betZS = ((JsonObject) player.get(4)).get("bet").getAsInt();
+        Integer betW = ((JsonObject) player.get(5)).get("bet").getAsInt();
+
 //        for (int i = 0; i < player.size(); i++) {
 //
 //
@@ -72,13 +75,13 @@ public class Player {
 //                result = currentBuyIn - bet + raise;
 //            }
 
-            if (card1.getRank() > 10 && card2.getRank() > 10 && card1.getRank()  == card2.getRank()) {
+            if (card1.getRank() > 11 && card2.getRank() > 11 && card1.getRank()  == card2.getRank() ) {
                 result = 1000;
             }
 
-            System.out.println("check community cards");
-            System.out.println(getCommunityCards(gameState));
-
+            if (betW > 400 && betZS > 400){
+                result = 0;
+            }
 
             // current_buy_in - players[in_action][bet] + minimum_raise
             System.out.println("CHECKPOINT 3");
