@@ -17,22 +17,22 @@ public class Player {
     public static int betRequest(JsonElement request) {
         Integer result = null;
 
-        System.out.println("CHECKPOINT 1");
         JsonObject gameState = request.getAsJsonObject();
         JsonArray player = gameState.getAsJsonArray("players");
         JsonObject ace = (JsonObject) player.get(2);
-        System.out.println("NAME:" + ace.get("name"));
         JsonArray cards = ace.getAsJsonArray("hole_cards");
 
         String cardRank = null;
         String cardSuite = null;
-        System.out.println("CHECKPOINT 2");
         Integer currentBuyIn = gameState.get("current_buy_in").getAsInt();
         Integer bet = ((JsonObject) player.get(2)).get("bet").getAsInt();
         Integer raise = gameState.get("minimum_raise").getAsInt();
         String inAction = gameState.get("in_action").toString();
         Integer value = currentBuyIn - bet + raise;
         result = 0;
+        System.out.println("bet = " + bet);
+        System.out.println("raise = " + raise);
+        System.out.println("currentBuyIn = " + currentBuyIn);
         if (cards.get(0) != null && cards.get(1) != null) {
             JsonObject cardRow1 = cards.get(0).getAsJsonObject();
             JsonObject cardRow2 = cards.get(1).getAsJsonObject();
@@ -65,12 +65,6 @@ public class Player {
             if (card1.getRank() > 9 && card2.getRank() > 9 && card1.getRank()  == card2.getRank()) {
                 result = Math.max(890, currentBuyIn - bet + raise);
             }
-
-
-
-            System.out.println("CARD1 RANK: " + card1.getRank());
-            System.out.println("CARD2 RANK: " + card2.getRank());
-            System.out.println("result = " + result);
 
             System.out.println("check community cards");
             System.out.println(getCommunityCards(gameState));
