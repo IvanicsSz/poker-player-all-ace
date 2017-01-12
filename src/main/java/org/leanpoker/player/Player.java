@@ -42,7 +42,6 @@ public class Player {
         String inAction = gameState.get("in_action").toString();
         Integer value = currentBuyIn - bet + raise;
 
-
         result = 0;
         System.out.println("bet = " + bet);
         System.out.println("raise = " + raise);
@@ -76,18 +75,18 @@ public class Player {
 //                result = currentBuyIn - bet + raise;
 //            }
 
-//            if (card1.getRank() > 11 && card2.getRank() > 11 && card1.getRank()  == card2.getRank() ) {
-//                result = 1000;
-//            }
-//
-//            if (betW > 400 && betZS > 400){
-//                result = 0;
-//            }
+            if (card1.getRank() > 11 && card2.getRank() > 11 && card1.getRank()  == card2.getRank() ) {
+                result = 1000;
+            }
+
+            System.out.println("check community cards");
+            System.out.println(getCommunityCards(gameState));
+
 
             // current_buy_in - players[in_action][bet] + minimum_raise
             System.out.println("CHECKPOINT 3");
         }
-            return 1000;
+            return result;
     }
 
     private static List<Card> getCommunityCards(JsonObject gameState) {
