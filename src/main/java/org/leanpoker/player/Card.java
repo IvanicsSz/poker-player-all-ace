@@ -23,4 +23,12 @@ public class Card {
             this.suit = alphabeticalSuit.get(suit);
         } else this.suit = Integer.parseInt(suit);
     }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public int getSuit() {
+        return suit;
+    }
 }
