@@ -30,12 +30,12 @@ public class Player {
 //        Card card2 = new Card(cardRow2.get("suit").toString(),cardRow2.get("rank").toString());
         //cards.get(1).
         //[{"rank":"7","suit":"spades"},{"rank":"4","suit":"diamonds"}]
-        System.out.println("card1 = " + card1);
-        System.out.println("card2 = " + card2);
+       // System.out.println("card1 = " + card1);
+       // System.out.println("card2 = " + card2);
         System.err.println(request);
         System.out.println("CHECKPOINT 3");
 
-        current_buy_in - players[in_action][bet] + minimum_raise
+       // current_buy_in - players[in_action][bet] + minimum_raise
         return 1000;
     }
 
